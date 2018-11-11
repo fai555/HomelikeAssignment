@@ -1,10 +1,10 @@
 import locationsSchema from '../locations/locations.graphql.schema.js';
 import apartmentsSchema from '../apartments/apartments.graphql.schema.js';
 import usersSchema from '../users/users.graphql.schema.js';
-
+// custom comments
 // adding country to /graphql
 import countrySchema from '../countries/countries.graphql.schema.js';
-
+// custom comments
 // moved the type Profiles in a seperate folder and on to a seperate 
 // file for more manageability and readability
 import profileSchema from '../profiles/profiles.graphql.schema.js';
@@ -38,9 +38,10 @@ export default [
   ...locationsSchema,
   ...apartmentsSchema,
   ...usersSchema,
-
+  // custom comments
   // adding country to /graphql endpoint
   ...countrySchema,
+  // custom comments
   // adding profile schema
   ...profileSchema,
 ];

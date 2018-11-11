@@ -5,8 +5,12 @@ module.exports = function() {
   const app = this;
   const mongoClient = app.get('mongoClient');
 
-  const apartmentService = createService({});
-  app.use('/locations', apartmentService);
+  // custom comments
+  // renamed apartmentService to locationService
+  // it isn't an error, but makes the codebase
+  // consistent and more readable 
+  const locationService = createService({});
+  app.use('/locations', locationService);
 
   const service = app.service('locations');
 
