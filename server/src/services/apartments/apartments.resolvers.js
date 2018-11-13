@@ -8,12 +8,16 @@ export default function (Users, Locations) {
       },
       location: (apartment) => {
         console.log("@@ "+apartment.location+" @@@")
-        Locations.find().then(result=>console.log(result[0]))
-        return Locations.find({ query: { _id: apartment.location }}).then(result=>{
+
+        // console.log("1111")
+        Locations.find({ _id: apartment.location }).then(result=>console.log("1111",result,"1111"))
+        // console.log("1111")
+        
+        return Locations.find({ _id: apartment.location }).then(result=>{
           console.log("##")
           console.log("result"+result)
           console.log("##")
-          result[0]
+          return result[0]
         
         });
       },
