@@ -2,6 +2,8 @@ import React from 'react';
 import {fetchApartment} from "../actions/apartmentActions";
 import {connect} from "react-redux";
 import ApartmentAmentityView from "./ApartmentAmentityView";
+import OwnerDetailView from "./OwnerDetailView";
+
 
 export class ApartmentView extends React.Component {
   componentWillMount() {
@@ -15,7 +17,9 @@ export class ApartmentView extends React.Component {
     if (!Object.keys(apartment).length) {
       return <div>Loading...</div>
     }
-    let image = 'http://localhost:5000/images/apartments/' + apartment.images[0];
+
+    console.log(apartment)
+    // let image = 'http://localhost:5000/images/apartments/' + apartment.images[0];
     return (
       <div className='container-fl clearfix'>
         <div className='col-12'>
@@ -24,7 +28,22 @@ export class ApartmentView extends React.Component {
               <div className="view-apartment-item-content">
                 <div className="_3im4pDXrDfzNRT2AlvLfD6">
                   <div className="listing-image">
-                    <div className="media-cover" style={{backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain'}}></div>
+
+                    {
+                      apartment.images.map((image, index)=>{
+                        let url = 'http://localhost:5000/images/apartments/' + image;
+                        console.log(image)
+                        return(
+                          // <h1 key={index}>hsdhhd</h1>
+                          // <img src={`${url}`} alt="Smiley face" width="42" height="42" style={{'display': "inlineBlock"}}/>
+                          <div className="media-cover" style={{backgroundImage: `url(${url})`, backgroundPosition: 'center', backgroundSize: 'contain'}}></div>
+
+                          )
+                        })
+
+                      }
+
+                    
                     <div className="_3Ts2_4uirKsrlm2Qb57Avw"></div>
                     <div className="Ok22VaqPDW9x1uaR46cRO _3ORDzmMDnpzTXIIXjJsRw7">
                       <span>{apartment.price} €</span>
@@ -47,6 +66,13 @@ export class ApartmentView extends React.Component {
                         <ApartmentAmentityView apartment={apartment} limit="20" />
                       </div>
                     </div>
+
+                    <div className="f9YmKwMaSOdtYnk_Qz-iT">
+                      <div className="dVjtBg_ihJ63cZB8GwE0g text-truncate">
+                        <OwnerDetailView owner={apartment.owner}/>
+                      </div>
+                    </div>
+                    
                   </div>
                 </div>
               </div>

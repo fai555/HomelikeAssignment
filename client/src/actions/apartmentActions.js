@@ -9,8 +9,13 @@ export const fetchApartment = (_id) => dispatch => {
       apartment(_id: "${_id}") {
         _id
         owner {
-        _id
+          _id
           email
+          profile{
+            firstName
+            lastName
+            role
+          }
         } 
         title
         location {
