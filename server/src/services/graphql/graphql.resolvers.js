@@ -18,6 +18,8 @@ export default function () {
   // declared Countries service to pass as a parameter in locationsResolvers
   const Countries = app.service('countries');
 
+  // Apartments.find().then(data=>console.log(data));
+
   const rootResolvers = {
     Query: {
 

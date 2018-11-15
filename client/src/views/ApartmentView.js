@@ -14,6 +14,7 @@ export class ApartmentView extends React.Component {
 
   render() {
     const { apartment } = this.props;
+    // console.log(this.props)
     if (!Object.keys(apartment).length) {
       return <div>Loading...</div>
     }

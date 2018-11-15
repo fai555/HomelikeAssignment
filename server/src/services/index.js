@@ -13,8 +13,10 @@ module.exports = function () {
   app.configure(users);
   app.configure(apartments);
   app.configure(locations);
-  app.configure(graphql);
 
+  
   // importing countries for server tasks step 1
   app.configure(countries);
+  
+  app.configure(graphql);
 };
