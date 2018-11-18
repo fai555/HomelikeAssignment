@@ -9,6 +9,7 @@ import ApartmentView from "./views/ApartmentView";
 
 import LocationView from "./views/LocationView";
 import LocationListView from './views/LocationListView';
+import SearchView  from './views/SearchView';
 
 class App extends Component {
   render() {
@@ -22,6 +23,8 @@ class App extends Component {
 
               <Route exact path="/locations" component={LocationListView}/>
               <Route exact path="/locations/:locationId" component={LocationView}/>
+
+              <Route exact path="/search"  component={SearchView}/>
             </div>
           </Router>
         </Provider>
