@@ -1,29 +1,59 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchLocationsList} from '../actions/locationsListActions';
+import {fetchApartmentFilteredByLocation} from "../actions/apartmentFilteredByLocationActions";
 import LocationTileView from "./LocationTileView";
 
 class SearchView extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      location : ""
+    }
+  }
   componentWillMount() {
-    this.props.fetchLocationsList();
+    let {location} = this.state;
+    this.props.fetchApartmentFilteredByLocation(location);
   }
 
-  render() {
-    let {locationsList} = this.props;
+  onChangeLocation = (event)=>{
+    let location = event.target.value;
+    this.setState({location})
+    this.props.fetchApartmentFilteredByLocation(location);
+  }
+  
 
-    console.log(this.props)
-    if (!Object.keys(locationsList).length) {
-        return <div>Loading...</div>
-    }
+  render() {
+    let {location} = this.state;
+
+    const { apartmentsByLocation } = this.props;
+
+    console.log(apartmentsByLocation);
+    
+    // if (!Object.keys(apartmentsByLocation).length) {
+    //   return <div>Loading...</div>
+    // }
+
+
+    // // console.log(this.props)
+    // if (!Object.keys(apartmentsByLocation).length) {
+    //     return <div>Loading...</div>
+    // }
 
     return (
       <div className="container-list container-lg clearfix">
         <div className="col-12 float-left">
           <div>
-            <h2>Available Locations</h2>
-            {locationsList.items.map((item, index) => (
+          <input
+            value={location}
+            onChange={this.onChangeLocation}
+            className="search-box" 
+            type="text" 
+            name="search" 
+            placeholder="Search by location..."/>
+
+            {/* {apartmentsByLocation.items.map((item, index) => (
                 <LocationTileView key={index} location={item} />
-            ))}
+            ))} */}
           </div>
         </div>
       </div>
@@ -32,10 +62,10 @@ class SearchView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  locationsList: state.locationsList.locations
+  apartmentsByLocation: state.apartmentFilteredByLocation.apartmentsByLocation
 });
 
-export default connect(mapStateToProps, {fetchLocationsList})(SearchView)
+export default connect(mapStateToProps, {fetchApartmentFilteredByLocation})(SearchView)
 
 
 // import React from 'react';
