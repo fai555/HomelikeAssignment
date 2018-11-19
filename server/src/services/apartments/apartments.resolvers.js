@@ -9,44 +9,28 @@ export default function (Users, Locations) {
       location: (apartment) => {
 
 
+      // custom comments
+      // the commented out part was an unsuccessful attempt to implement search 
 
-
-        const where = apartment.location
-        ? {
-            OR: [
-              { _id: apartment.location },
-              { title_contains: apartment.location }
-            ],
-          }
-        : {}
+      //   const where = apartment.location
+      //   ? {
+      //       OR: [
+      //         { _id: apartment.location },
+      //         { title_contains: apartment.location }
+      //       ],
+      //     }
+      //   : {}
     
-      // return context.db.query.links({ where }, info)
+      // // return context.db.query.links({ where }, info)
 
-      return Locations.find({where}).then(result=>{
+      // return Locations.find({where}).then(result=>{
+      //     return result[0]
+      //   });
+
+      
+        return Locations.find({ _id: apartment.location }).then(result=>{
           return result[0]
         });
-
-
-
-
-
-
-
-        // console.log(location)
-        // return Locations.find({
-        //   "$or": [
-        //     { _id: apartment.location }
-        //     , {
-        //       title_contains: apartment.location
-        //     }]
-        // }
-
-          
-        //   // { _id: apartment.location }
-        
-        // ).then(result=>{
-        //   return result[0]
-        // });
       },
       details: (apartment) => {
         return apartment.detail;

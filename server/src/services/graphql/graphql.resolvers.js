@@ -29,7 +29,7 @@ export default function () {
   addQueryResolvers(rootResolvers.Query, Users, 'user', 'users');
   addQueryResolvers(rootResolvers.Query, Apartments, 'apartment', 'apartments');
   addQueryResolvers(rootResolvers.Query, Locations, 'location', 'locations');
-  // addQueryResolvers(rootResolvers.Query, Countries, 'country', 'countries');
+  addQueryResolvers(rootResolvers.Query, Countries, 'country', 'countries');
 
   return merge(
     rootResolvers,

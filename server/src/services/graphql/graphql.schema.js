@@ -20,6 +20,9 @@ const rootSchema = [
     
     location(_id: String): Locations
     locations(active: Boolean limit: Int skip: Int): LocationsWithPagination
+
+    country(_id: String): Countries
+    countries(title: String): CountriesWithPagination
   }
 
   type Mutation {

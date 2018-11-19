@@ -27,7 +27,7 @@ class SearchView extends React.Component {
 
     const { apartmentsByLocation } = this.props;
 
-    console.log(apartmentsByLocation);
+    console.log(location);
     
     // if (!Object.keys(apartmentsByLocation).length) {
     //   return <div>Loading...</div>
