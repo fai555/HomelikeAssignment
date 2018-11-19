@@ -8,6 +8,8 @@ import locationsListReducer from './locationsListReducer';
 export default combineReducers({
     apartmentsList: apartmentsListReducer,
     apartmentItem: apartmentReducer,
+    // custom comments
+    // added reducers
     apartmentFilteredByLocation: apartmentFilteredByLocationReducer,
     locationsList: locationsListReducer,
 })

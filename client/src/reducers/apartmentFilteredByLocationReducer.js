@@ -8,7 +8,6 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case FETCH_APARTMENT_FILTERED_BY_LOCATION:
-            // console.log(action.payload)
             return {
                 ...state,
                 apartmentsByLocation: action.payload

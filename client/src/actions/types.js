@@ -1,5 +1,8 @@
 export const FETCH_APARTMENTS_LIST = 'FETCH_APARTMENTS_LIST';
 export const FETCH_APARTMENT = 'FETCH_APARTMENT';
+
+// custom comments
+// added the two types of actions
 export const FETCH_APARTMENT_FILTERED_BY_LOCATION = 'FETCH_APARTMENT_FILTERED_BY_LOCATION';
 export const FETCH_LOCATIONS_LIST = 'FETCH_LOCATIONS_LIST';
 
